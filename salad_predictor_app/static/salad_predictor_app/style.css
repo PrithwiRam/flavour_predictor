@@ -1,0 +1,12 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.ingredient-row {
+    margin-bottom: 10px;
+}
+
+.box {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

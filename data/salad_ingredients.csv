@@ -1,0 +1,323 @@
+ingredient,sweet,sour,salty,bitter,umami,spicy,texture
+watercress,1,9,4,3,7,7,chewy
+chicory,0,10,2,3,4,6,granular
+dandelion greens,9,2,2,4,7,0,chewy
+mustard leaves,7,3,3,3,1,0,woody
+pea shoots,7,10,5,0,6,0,slimy
+microgreens,1,4,2,0,5,4,crisp
+mung bean sprouts,3,1,5,4,5,1,juicy
+alfalfa sprouts,2,9,2,5,6,5,creamy
+broccoli sprouts,2,7,1,3,5,0,crunchy
+kohlrabi,5,5,1,4,1,3,crisp
+fennel,7,6,7,3,7,8,fragrant
+jicama,5,6,7,1,6,8,fibrous
+daikon radish,8,4,4,2,0,7,smooth
+purple carrot,0,1,5,1,4,4,creamy
+golden beet,10,3,0,2,0,4,crisp
+white asparagus,10,2,0,3,0,8,soft
+sea asparagus,2,0,7,3,6,6,chewy
+sea kale,1,10,8,4,5,4,woody
+romanesco,3,0,6,2,7,5,starchy
+baby corn,5,1,8,0,3,1,buttery
+bamboo shoots,10,9,4,2,0,0,crisp
+edamame,7,1,9,1,0,3,peppery
+okra,9,1,9,0,1,10,leafy
+celeriac,0,2,5,0,1,2,chewy
+taro root,8,9,9,4,4,5,buttery
+lotus root,6,8,10,3,0,5,chewy
+jackfruit,8,9,7,3,4,7,leafy
+green papaya,0,3,5,5,1,10,smooth
+passion fruit,1,5,9,5,0,10,creamy
+lychee,3,8,7,2,0,7,crunchy
+starfruit,1,5,6,5,7,6,earthy
+dragon fruit,8,6,9,2,6,10,juicy
+persimmon,8,0,10,1,5,0,fibrous
+gooseberry,2,1,9,4,3,7,liquid
+elderberry,1,1,3,0,1,5,leafy
+currants,9,8,2,0,0,9,crunchy
+boysenberry,6,5,10,0,7,3,woody
+mulberry,5,5,8,2,5,7,briny
+cranberry,3,6,6,0,2,8,granular
+plantain,7,5,5,2,1,8,leafy
+black mission fig,10,3,4,2,1,4,fibrous
+tamarind,9,7,4,5,7,5,starchy
+pistachio,8,2,5,5,6,3,creamy
+candlenut,9,8,2,2,3,6,smooth
+barley,5,9,5,3,3,10,woody
+quinoa,1,3,8,0,2,3,chewy
+farro,5,4,10,2,0,10,soft
+bulgur,2,2,1,2,1,5,briny
+millet,6,0,10,2,4,5,liquid
+sorghum,10,8,4,0,6,5,fragrant
+spelt,2,8,10,1,1,6,crunchy
+teff,3,7,1,3,0,8,briny
+wild rice,9,3,1,3,6,0,juicy
+kamut,4,4,3,5,4,3,granular
+amaranth,6,9,4,3,7,2,granular
+chickpeas,6,8,2,1,2,8,leafy
+black beans,1,8,7,1,2,7,crunchy
+navy beans,0,4,6,0,5,4,crisp
+aduki beans,3,7,6,4,4,2,starchy
+mung beans,5,6,1,5,6,3,chewy
+lentils,1,1,3,1,6,5,starchy
+fava beans,4,6,1,4,0,4,buttery
+soybeans,6,9,5,4,2,1,starchy
+peanuts,7,10,8,2,5,10,buttery
+chestnut mushroom,10,4,0,3,5,7,crunchy
+oyster mushroom,4,1,2,2,1,0,crisp
+portobello mushroom,0,9,7,3,2,7,crisp
+shiitake mushroom,6,3,10,0,7,8,peppery
+enoki mushroom,1,8,9,1,7,9,fragrant
+wood ear mushroom,9,8,7,5,4,5,starchy
+maitake mushroom,0,5,6,4,1,5,chewy
+king oyster mushroom,5,0,7,5,1,5,woody
+black garlic,3,3,10,3,3,9,creamy
+shallots,9,7,3,0,4,5,soft
+ramps,9,1,2,5,5,2,smooth
+scapes,0,8,10,5,4,1,liquid
+horseradish,9,10,6,3,3,0,buttery
+wasabi root,1,3,4,1,0,7,crunchy
+pickled ginger,10,0,5,2,4,6,chewy
+turmeric root,4,9,7,2,1,5,slimy
+lemongrass,2,6,7,4,1,10,starchy
+yuzu,6,2,9,1,2,4,gel-like
+calamansi lime,4,8,0,4,0,8,peppery
+kumquat,5,10,6,2,4,10,briny
+satsuma orange,9,9,3,5,1,3,leafy
+pomelo,0,3,10,4,1,9,starchy
+bergamot,1,6,5,3,1,0,woody
+blood orange,5,0,9,3,7,0,fibrous
+sour cherry,6,9,5,2,7,1,fragrant
+white peach,0,0,7,3,3,1,granular
+nectarine,7,10,10,1,7,3,slimy
+apricot kernel,1,0,8,3,7,5,chewy
+candied pecans,2,2,4,2,2,6,fibrous
+smoked almonds,3,6,9,2,5,4,creamy
+toasted coconut,4,6,8,1,0,6,crunchy
+coconut flakes,2,1,3,2,6,7,leafy
+coconut milk,8,9,9,4,3,5,crisp
+cashew butter,1,3,6,1,0,10,crisp
+almond butter,5,5,7,5,5,9,fragrant
+tahini,6,7,9,2,4,2,gel-like
+miso paste,5,2,7,1,3,6,smooth
+ghee,5,8,6,2,2,0,fibrous
+goat milk yogurt,1,2,3,3,2,10,slimy
+Greek yogurt,7,7,8,0,4,5,granular
+kefir,6,7,8,5,0,3,gel-like
+buttermilk,3,2,8,0,4,6,crunchy
+ricotta cheese,1,7,4,4,3,0,fibrous
+burrata,6,9,7,1,5,0,chewy
+camembert cheese,6,6,10,5,4,1,buttery
+brie cheese,5,6,7,0,3,1,fragrant
+provolone cheese,8,9,6,4,7,1,earthy
+manchego cheese,9,0,3,0,7,5,liquid
+pecorino cheese,4,3,10,4,2,4,woody
+asiago cheese,10,2,1,0,4,0,crisp
+gruyère cheese,5,9,7,4,3,4,creamy
+fontina cheese,0,1,7,0,3,9,crisp
+havarti cheese,6,9,7,4,7,6,liquid
+cheddar cheese,8,1,7,1,3,0,granular
+smoked gouda,9,1,9,0,7,0,gel-like
+halloumi,9,2,8,0,3,0,crisp
+paneer,4,10,2,5,3,8,fragrant
+labneh,2,1,1,4,0,4,chewy
+queso fresco,1,1,6,5,3,0,briny
+queso blanco,2,4,4,2,6,3,granular
+cotija cheese,1,0,4,0,2,7,leafy
+taleggio cheese,6,10,6,1,2,4,buttery
+stilton cheese,7,0,9,1,4,9,buttery
+ricotta salata,0,5,4,0,1,0,soft
+herbed cream cheese,9,10,8,3,2,8,leafy
+vegan cheese,8,1,9,5,7,0,starchy
+cashew cheese,4,2,10,0,1,10,earthy
+almond cheese,3,10,0,1,2,9,starchy
+tempeh,10,0,4,2,5,10,buttery
+seitan,5,9,5,1,4,6,peppery
+tofu,5,9,4,1,7,1,earthy
+smoked tofu,0,0,8,5,4,0,starchy
+fermented black beans,10,5,3,0,2,10,gel-like
+natto,3,1,10,4,2,9,soft
+pickled radish,5,7,6,3,3,4,liquid
+sauerkraut,6,7,4,0,1,2,gel-like
+kimchi,7,5,5,0,2,9,liquid
+pickled onions,0,0,6,4,0,2,crisp
+pickled carrots,6,8,1,3,7,0,smooth
+pickled beets,8,4,0,4,6,7,smooth
+pickled fennel,9,1,5,4,0,3,leafy
+pickled watermelon rind,5,8,2,5,2,9,woody
+pickled jalapeños,3,3,7,5,2,3,liquid
+pickled mustard seeds,7,1,3,3,4,0,creamy
+pickled okra,8,4,4,4,2,4,fragrant
+pickled turnip,7,0,9,0,6,4,briny
+capers,6,1,5,5,1,5,woody
+anchovies,2,5,8,1,2,3,leafy
+sun-dried tomatoes,10,6,6,5,4,9,gel-like
+roasted red peppers,9,7,1,3,2,0,chewy
+artichoke hearts,6,10,4,3,0,2,smooth
+marinated olives,2,0,3,3,0,3,fibrous
+kalamata olives,4,8,6,1,0,10,briny
+castelvetrano olives,1,1,0,3,5,8,soft
+green olives,6,6,9,0,7,2,chewy
+black olives,3,7,5,2,4,8,gel-like
+white truffle oil,5,6,1,2,0,5,starchy
+black truffle oil,0,3,8,4,7,7,creamy
+avocado oil,0,1,4,0,0,0,leafy
+walnut oil,1,9,10,2,7,10,briny
+grape seed oil,2,9,1,2,0,9,briny
+flaxseed oil,5,5,5,4,5,9,creamy
+pumpkin seed oil,5,2,2,4,5,10,leafy
+macadamia nut oil,5,8,8,3,4,2,gel-like
+hazelnut oil,6,0,9,4,0,1,smooth
+mustard oil,2,2,5,4,7,4,earthy
+saffron,8,1,8,3,3,1,peppery
+sumac,9,5,5,0,4,8,slimy
+za'atar,4,0,2,4,7,6,peppery
+berbere spice,5,4,5,3,2,5,fragrant
+curry powder,9,9,8,3,1,2,crunchy
+Chinese five-spice,6,7,3,2,7,6,smooth
+Garam masala,7,9,4,1,3,10,juicy
+togarashi,3,6,4,4,0,2,briny
+dashi,4,8,9,0,5,5,creamy
+fish sauce,5,1,7,1,6,4,earthy
+oyster sauce,0,8,1,0,1,9,earthy
+hoisin sauce,3,1,0,1,6,2,crisp
+ponzu sauce,4,1,3,1,3,0,fibrous
+teriyaki sauce,7,3,4,0,2,4,woody
+chimichurri,3,9,0,3,1,8,leafy
+salsa verde,6,4,4,4,0,8,starchy
+honey mustard,2,5,3,2,1,4,soft
+maple syrup,3,7,1,5,7,8,granular
+pomegranate molasses,3,8,6,0,4,1,briny
+black sesame seeds,9,8,4,3,0,6,fragrant
+white sesame seeds,0,0,4,0,3,2,starchy
+nigella seeds,10,10,8,2,7,1,fibrous
+caraway seeds,5,10,8,1,4,5,crisp
+cumin seeds,2,2,5,1,0,1,soft
+fennel seeds,9,6,1,3,5,9,briny
+fenugreek seeds,4,7,1,4,6,4,buttery
+coriander seeds,2,9,8,2,1,0,woody
+cardamom,2,0,10,1,7,6,buttery
+clove,6,2,2,5,2,5,starchy
+star anise,8,1,0,5,7,4,chewy
+cinnamon stick,1,10,6,1,3,0,granular
+nutmeg,5,6,5,5,7,4,fibrous
+mace,7,1,6,0,0,2,creamy
+allspice,1,0,4,4,1,8,peppery
+bay leaves,0,3,7,1,5,1,crisp
+lavender,0,8,1,4,3,4,briny
+dried hibiscus flowers,10,10,6,5,0,1,peppery
+dried rose petals,5,10,2,3,6,3,slimy
+onion,2,1,0,4,2,3,crunchy
+carrot,6,0,0,1,1,0,crisp
+tomato,5,3,0,1,4,0,juicy
+vinegar,0,8,0,2,0,0,liquid
+salt,0,0,10,0,0,0,granular
+cucumber,3,1,0,0,1,0,crisp
+lettuce,1,0,0,0,1,0,leafy
+bell pepper,4,0,0,1,2,1,crunchy
+spinach,2,0,0,3,2,0,leafy
+radish,2,0,0,3,2,4,crunchy
+celery,1,0,0,2,1,0,fibrous
+beetroot,5,0,0,2,2,0,earthy
+avocado,4,0,0,0,3,0,creamy
+broccoli,2,0,0,3,4,0,crunchy
+cauliflower,1,0,0,3,2,0,crumbly
+parsley,1,0,0,3,1,0,herbaceous
+mint,3,0,0,1,1,0,refreshing
+basil,2,0,0,2,1,0,aromatic
+cherry tomato,6,2,0,1,4,0,juicy
+red cabbage,2,1,0,2,2,0,crunchy
+green cabbage,1,0,0,2,2,0,crunchy
+olive,1,0,6,4,5,0,briny
+capers,0,2,8,3,1,0,briny
+feta cheese,2,1,7,1,6,0,crumbly
+walnut,2,0,0,4,2,0,crunchy
+almond,2,0,0,3,2,0,crunchy
+pine nut,3,0,0,2,3,0,soft
+pumpkin seed,2,0,0,3,2,0,nutty
+sesame seed,2,0,0,2,3,0,nutty
+sunflower seed,2,0,0,3,2,0,crunchy
+pomegranate,7,3,0,0,1,0,juicy
+apple,6,2,0,0,1,0,crisp
+pear,6,1,0,0,1,0,juicy
+grape,6,3,0,0,1,0,juicy
+orange,7,4,0,0,1,0,juicy
+lemon,2,9,0,0,0,0,citrusy
+lime,2,9,0,0,0,0,citrusy
+chili pepper,2,0,0,2,1,10,spicy
+ginger,1,0,0,3,2,8,fibrous
+avocado,2,0,1,0,5,0,creamy
+arugula,2,0,0,3,2,0,peppery
+asparagus,1,0,0,3,3,0,tender
+bok choy,1,0,0,2,2,0,crunchy
+chard,2,0,0,3,2,0,leafy
+endive,1,0,0,4,1,0,bitter
+watercress,1,0,0,4,1,0,peppery
+zucchini,2,0,0,1,2,0,crisp
+mushroom,1,0,0,2,5,0,chewy
+scallion,2,1,0,3,2,2,crunchy
+shallot,3,1,0,4,2,0,mild
+leek,2,1,0,3,2,0,fibrous
+cilantro,1,0,0,2,1,0,herbaceous
+dill,1,0,0,1,1,0,fragrant
+tarragon,2,0,0,1,1,0,aromatic
+oregano,1,0,0,2,1,0,pungent
+thyme,1,0,0,2,1,0,earthy
+rosemary,1,0,0,2,1,0,woody
+blueberry,6,2,0,0,1,0,juicy
+raspberry,5,4,0,0,1,0,tart
+strawberry,7,3,0,0,1,0,juicy
+blackberry,5,3,0,0,1,0,tart
+peach,7,2,0,0,1,0,soft
+plum,6,3,0,0,1,0,juicy
+apricot,6,2,0,0,1,0,soft
+kiwi,5,4,0,0,1,0,tart
+mango,8,1,0,0,1,0,soft
+papaya,7,0,0,0,1,0,creamy
+coconut,4,0,0,0,1,0,fibrous
+watermelon,7,1,0,0,1,0,juicy
+cantaloupe,6,1,0,0,1,0,juicy
+honeydew,6,1,0,0,1,0,juicy
+fig,7,1,0,0,1,0,chewy
+date,9,0,0,0,1,0,chewy
+cashew,3,0,0,2,2,0,buttery
+pecan,3,0,0,3,2,0,crunchy
+hazelnut,3,0,0,3,2,0,nutty
+macadamia,4,0,0,2,2,0,buttery
+chestnut,4,0,0,2,2,0,starchy
+mustard greens,1,0,0,4,1,0,peppery
+kale,1,0,0,3,2,0,chewy
+seaweed,1,0,5,3,7,0,slippery
+artichoke,2,0,0,3,4,0,fibrous
+okra,2,0,0,2,2,0,slimy
+turnip,2,0,0,3,2,0,crunchy
+parsnip,4,0,0,2,2,0,starchy
+rutabaga,3,0,0,2,2,0,earthy
+olive oil,0,0,0,0,5,0,smooth
+balsamic vinegar,3,6,0,1,2,0,liquid
+almonds,2,0,1,1,3,0,crunchy
+walnuts,1,0,1,2,4,0,crunchy
+pecans,2,0,1,1,3,0,crunchy
+chia seeds,0,0,0,0,3,0,gel-like
+flax seeds,0,0,0,1,2,0,crunchy
+sunflower seeds,1,0,1,1,3,0,crunchy
+pumpkin seeds,1,0,1,1,3,0,crunchy
+feta cheese,1,0,3,0,6,0,crumbly
+parmesan cheese,1,0,4,0,7,0,hard
+mozzarella cheese,2,0,3,0,6,0,soft
+ranch dressing,2,0,3,0,5,1,creamy
+vinaigrette,1,5,2,0,3,0,liquid
+caesar dressing,2,0,4,0,6,1,creamy
+tahini,1,0,2,1,5,0,smooth
+basil,1,0,0,3,2,0,leafy
+cilantro,1,0,0,3,2,0,leafy
+dill,1,0,0,4,2,0,leafy
+parsley,1,0,0,3,2,0,leafy
+sesame oil,0,0,0,0,5,0,smooth
+blue cheese,1,0,4,0,7,0,crumbly
+goat cheese,2,0,3,0,6,0,soft
+pine nuts,2,0,1,1,3,0,crunchy
+croutons,1,0,2,0,3,0,crunchy
+yogurt,3,1,1,0,5,0,creamy
+honey,10,0,0,0,2,0,sticky
+mustard,2,3,2,0,4,3,smooth

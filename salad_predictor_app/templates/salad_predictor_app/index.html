@@ -1,0 +1,520 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Salad Taste Predictor</title>
+    <link rel="stylesheet" href="{% static 'salad_predictor_app/css/style.css' %}">
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            max-width: 1200px;
+        }
+        .box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            width: 45%;
+            height: 500px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .ingredient-item {
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .ingredient-item:hover {
+            background-color: #e3f2fd;
+        }
+        .selected {
+            background-color: #bbdefb;
+        }
+        .selected-ingredient {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 8px 0;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+        .amount-input {
+            width: 70px;
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .remove-btn {
+            background-color: #ffcdd2;
+            border: none;
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #ef9a9a;
+        }
+        #predict-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #predict-btn:hover {
+            background-color: #388e3c;
+        }
+        #results {
+            margin-top: 25px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fffde7;
+        }
+        .category {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2e7d32;
+            border-bottom: 1px solid #c8e6c9;
+            padding-bottom: 5px;
+        }
+        .flavor-meter {
+            margin: 15px 0;
+            background: #f1f1f1;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .flavor-bar {
+            height: 12px;
+            background: linear-gradient(to right, #e3f2fd, #1976d2);
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .taste-profile {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .taste-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍅 AI Salad Taste Predictor</h1>
+    
+    <div class="container">
+        <!-- Available Ingredients Box -->
+        <div class="box">
+            <h2>Available Ingredients</h2>
+            
+            <div class="category">Vegetables</div>
+            <div id="vegetables">
+                <div class="ingredient-item" data-name="onion">Onion</div>
+                <div class="ingredient-item" data-name="carrot">Carrot</div>
+                <div class="ingredient-item" data-name="tomato">Tomato</div>
+                <div class="ingredient-item" data-name="cucumber">Cucumber</div>
+                <div class="ingredient-item" data-name="lettuce">Lettuce</div>
+                <div class="ingredient-item" data-name="bell pepper">Bell Pepper</div>
+                <div class="ingredient-item" data-name="spinach">Spinach</div>
+                <div class="ingredient-item" data-name="radish">Radish</div>
+                <div class="ingredient-item" data-name="celery">Celery</div>
+                <div class="ingredient-item" data-name="beetroot">Beetroot</div>
+                <div class="ingredient-item" data-name="avocado">Avocado</div>
+                <div class="ingredient-item" data-name="broccoli">Broccoli</div>
+                <div class="ingredient-item" data-name="cauliflower">Cauliflower</div>
+                <div class="ingredient-item" data-name="red cabbage">Red Cabbage</div>
+                <div class="ingredient-item" data-name="green cabbage">Green Cabbage</div>
+                <div class="ingredient-item" data-name="zucchini">Zucchini</div>
+                <div class="ingredient-item" data-name="mushroom">Mushroom</div>
+                <div class="ingredient-item" data-name="scallion">Scallion</div>
+                <div class="ingredient-item" data-name="shallot">Shallot</div>
+                <div class="ingredient-item" data-name="leek">Leek</div>
+                <div class="ingredient-item" data-name="asparagus">Asparagus</div>
+                <div class="ingredient-item" data-name="bok choy">Bok Choy</div>
+                <div class="ingredient-item" data-name="chard">Chard</div>
+                <div class="ingredient-item" data-name="endive">Endive</div>
+                <div class="ingredient-item" data-name="watercress">Watercress</div>
+                <div class="ingredient-item" data-name="kale">Kale</div>
+                <div class="ingredient-item" data-name="mustard greens">Mustard Greens</div>
+                <div class="ingredient-item" data-name="arugula">Arugula</div>
+                <div class="ingredient-item" data-name="artichoke">Artichoke</div>
+                <div class="ingredient-item" data-name="okra">Okra</div>
+                <div class="ingredient-item" data-name="turnip">Turnip</div>
+                <div class="ingredient-item" data-name="parsnip">Parsnip</div>
+                <div class="ingredient-item" data-name="rutabaga">Rutabaga</div>
+            </div>
+            
+            <div class="category">Fruits</div>
+            <div id="fruits">
+                <div class="ingredient-item" data-name="pomegranate">Pomegranate</div>
+                <div class="ingredient-item" data-name="apple">Apple</div>
+                <div class="ingredient-item" data-name="pear">Pear</div>
+                <div class="ingredient-item" data-name="grape">Grape</div>
+                <div class="ingredient-item" data-name="orange">Orange</div>
+                <div class="ingredient-item" data-name="lemon">Lemon</div>
+                <div class="ingredient-item" data-name="lime">Lime</div>
+                <div class="ingredient-item" data-name="blueberry">Blueberry</div>
+                <div class="ingredient-item" data-name="raspberry">Raspberry</div>
+                <div class="ingredient-item" data-name="strawberry">Strawberry</div>
+                <div class="ingredient-item" data-name="blackberry">Blackberry</div>
+                <div class="ingredient-item" data-name="peach">Peach</div>
+                <div class="ingredient-item" data-name="plum">Plum</div>
+                <div class="ingredient-item" data-name="apricot">Apricot</div>
+                <div class="ingredient-item" data-name="kiwi">Kiwi</div>
+                <div class="ingredient-item" data-name="mango">Mango</div>
+                <div class="ingredient-item" data-name="papaya">Papaya</div>
+                <div class="ingredient-item" data-name="coconut">Coconut</div>
+                <div class="ingredient-item" data-name="watermelon">Watermelon</div>
+                <div class="ingredient-item" data-name="cantaloupe">Cantaloupe</div>
+                <div class="ingredient-item" data-name="honeydew">Honeydew</div>
+                <div class="ingredient-item" data-name="fig">Fig</div>
+                <div class="ingredient-item" data-name="date">Date</div>
+            </div>
+            
+            <div class="category">Herbs & Spices</div>
+            <div id="herbs">
+                <div class="ingredient-item" data-name="parsley">Parsley</div>
+                <div class="ingredient-item" data-name="mint">Mint</div>
+                <div class="ingredient-item" data-name="basil">Basil</div>
+                <div class="ingredient-item" data-name="cilantro">Cilantro</div>
+                <div class="ingredient-item" data-name="dill">Dill</div>
+                <div class="ingredient-item" data-name="tarragon">Tarragon</div>
+                <div class="ingredient-item" data-name="oregano">Oregano</div>
+                <div class="ingredient-item" data-name="thyme">Thyme</div>
+                <div class="ingredient-item" data-name="rosemary">Rosemary</div>
+                <div class="ingredient-item" data-name="chili pepper">Chili Pepper</div>
+                <div class="ingredient-item" data-name="ginger">Ginger</div>
+            </div>
+            
+            <div class="category">Nuts & Seeds</div>
+            <div id="nuts">
+                <div class="ingredient-item" data-name="walnut">Walnut</div>
+                <div class="ingredient-item" data-name="almond">Almond</div>
+                <div class="ingredient-item" data-name="pine nut">Pine Nut</div>
+                <div class="ingredient-item" data-name="pumpkin seed">Pumpkin Seed</div>
+                <div class="ingredient-item" data-name="sesame seed">Sesame Seed</div>
+                <div class="ingredient-item" data-name="sunflower seed">Sunflower Seed</div>
+                <div class="ingredient-item" data-name="cashew">Cashew</div>
+                <div class="ingredient-item" data-name="pecan">Pecan</div>
+                <div class="ingredient-item" data-name="hazelnut">Hazelnut</div>
+                <div class="ingredient-item" data-name="macadamia">Macadamia</div>
+                <div class="ingredient-item" data-name="chestnut">Chestnut</div>
+                <div class="ingredient-item" data-name="chia seeds">Chia Seeds</div>
+                <div class="ingredient-item" data-name="flax seeds">Flax Seeds</div>
+            </div>
+            
+            <div class="category">Dairy & Proteins</div>
+            <div id="dairy">
+                <div class="ingredient-item" data-name="feta cheese">Feta Cheese</div>
+                <div class="ingredient-item" data-name="parmesan cheese">Parmesan Cheese</div>
+                <div class="ingredient-item" data-name="mozzarella cheese">Mozzarella Cheese</div>
+                <div class="ingredient-item" data-name="blue cheese">Blue Cheese</div>
+                <div class="ingredient-item" data-name="goat cheese">Goat Cheese</div>
+                <div class="ingredient-item" data-name="yogurt">Yogurt</div>
+            </div>
+            
+            <div class="category">Dressings & Oils</div>
+            <div id="dressings">
+                <div class="ingredient-item" data-name="olive oil">Olive Oil</div>
+                <div class="ingredient-item" data-name="balsamic vinegar">Balsamic Vinegar</div>
+                <div class="ingredient-item" data-name="vinegar">Vinegar</div>
+                <div class="ingredient-item" data-name="ranch dressing">Ranch Dressing</div>
+                <div class="ingredient-item" data-name="vinaigrette">Vinaigrette</div>
+                <div class="ingredient-item" data-name="caesar dressing">Caesar Dressing</div>
+                <div class="ingredient-item" data-name="tahini">Tahini</div>
+                <div class="ingredient-item" data-name="sesame oil">Sesame Oil</div>
+                <div class="ingredient-item" data-name="honey">Honey</div>
+            </div>
+            
+            <div class="category">Other</div>
+            <div id="other">
+                <div class="ingredient-item" data-name="olive">Olive</div>
+                <div class="ingredient-item" data-name="capers">Capers</div>
+                <div class="ingredient-item" data-name="croutons">Croutons</div>
+                <div class="ingredient-item" data-name="salt">Salt</div>
+                <div class="ingredient-item" data-name="seaweed">Seaweed</div>
+            </div>
+        </div>
+        
+        <!-- Selected Ingredients Box -->
+        <div class="box">
+            <h2>Your Salad Ingredients</h2>
+            <div id="selected-ingredients">
+                <p style="color: #666; font-style: italic;">Click ingredients to add them here</p>
+            </div>
+            <div class="ingredient-counter" style="margin-top: 15px; font-size: 14px; color: #666;">
+                <span id="ingredient-count">0</span> ingredients selected
+            </div>
+        </div>
+    </div>
+    
+    <button id="predict-btn">Predict Salad Taste</button>
+    <div class="loader" id="loading-spinner"></div>
+    
+    <div id="results"></div>
+
+    <script src="{% static 'salad_predictor_app/js/script.js' %}"></script>
+    <script>
+        // Store selected ingredients with amounts
+        const selectedIngredients = [];
+        
+        // Add click event to ingredients
+        document.querySelectorAll('.ingredient-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const ingredientName = this.getAttribute('data-name');
+                const displayName = this.textContent;
+                
+                // Check if already selected
+                if (selectedIngredients.some(i => i.ingredient === ingredientName)) {
+                    return;
+                }
+                
+                // Create div for selected ingredient
+                const div = document.createElement('div');
+                div.className = 'selected-ingredient';
+                div.dataset.name = ingredientName;
+                div.innerHTML = `
+                    <span>${displayName}</span>
+                    <input type="number" class="amount-input" placeholder="grams" min="1" value="10"
+                           data-name="${ingredientName}">
+                    <button class="remove-btn">×</button>
+                `;
+                
+                document.getElementById('selected-ingredients').querySelector('p')?.remove();
+                document.getElementById('selected-ingredients').appendChild(div);
+                
+                // Add to array with default 10g
+                selectedIngredients.push({
+                    ingredient: ingredientName,
+                    amount: 10
+                });
+                
+                // Update counter
+                document.getElementById('ingredient-count').textContent = selectedIngredients.length;
+                
+                // Highlight in available list
+                this.classList.add('selected');
+                
+                // Add remove event
+                div.querySelector('.remove-btn').addEventListener('click', function() {
+                    // Remove from selected list
+                    div.remove();
+                    
+                    // Remove from array
+                    const index = selectedIngredients.findIndex(i => i.ingredient === ingredientName);
+                    if (index !== -1) {
+                        selectedIngredients.splice(index, 1);
+                    }
+                    
+                    // Update counter
+                    document.getElementById('ingredient-count').textContent = selectedIngredients.length;
+                    
+                    // Unhighlight in available list
+                    document.querySelector(`.ingredient-item[data-name="${ingredientName}"]`).classList.remove('selected');
+                    
+                    // Show placeholder if empty
+                    if (selectedIngredients.length === 0) {
+                        document.getElementById('selected-ingredients').innerHTML = 
+                            '<p style="color: #666; font-style: italic;">Click ingredients to add them here</p>';
+                    }
+                });
+                
+                // Add amount change event
+                div.querySelector('.amount-input').addEventListener('change', function() {
+                    const amount = parseInt(this.value) || 0;
+                    const item = selectedIngredients.find(i => i.ingredient === ingredientName);
+                    if (item) item.amount = amount;
+                });
+            });
+        });
+        
+        // Predict button click handler
+        document.getElementById('predict-btn').addEventListener('click', async function() {
+            // Create array from currently selected ingredients
+            const ingredientsToSend = [];
+            
+            // Get all selected ingredients and their amounts
+            document.querySelectorAll('.selected-ingredient').forEach(div => {
+                const name = div.dataset.name;
+                const amount = parseInt(div.querySelector('.amount-input').value) || 0;
+                
+                if (amount > 0) {
+                    ingredientsToSend.push({
+                        ingredient: name,
+                        amount: amount
+                    });
+                }
+            });
+            
+            if (ingredientsToSend.length === 0) {
+                alert('Please add ingredients and specify amounts');
+                return;
+            }
+            
+            // Show loading state
+            this.disabled = true;
+            this.textContent = 'Analyzing...';
+            document.getElementById('loading-spinner').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            
+            try {
+                const response = await fetch('/predict/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                    body: JSON.stringify({
+                        ingredients: ingredientsToSend
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Server error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.success) {
+                    throw new Error(data.error || "Unknown error occurred");
+                }
+                
+                // Build taste profile visualization
+                let tasteProfileHtml = '<div class="taste-profile">';
+                
+                for (const [taste, score] of Object.entries(data.taste_scores)) {
+                    const percentage = Math.min(score * 10, 100);
+                    tasteProfileHtml += `
+                        <div class="taste-card">
+                            <div><strong>${taste.charAt(0).toUpperCase() + taste.slice(1)}</strong></div>
+                            <div class="flavor-meter">
+                                <div class="flavor-bar" style="width: ${percentage}%"></div>
+                            </div>
+                            <div>${score}/10</div>
+                        </div>
+                    `;
+                }
+                tasteProfileHtml += '</div>';
+                
+                // Build insights list
+                let insightsHtml = '<ul style="padding-left: 20px;">';
+                data.flavor_context.forEach(insight => {
+                    insightsHtml += `<li>${insight}</li>`;
+                });
+                insightsHtml += '</ul>';
+                
+                // Display results
+                document.getElementById('results').innerHTML = `
+                    <h3>🥗 AI Salad Taste Analysis</h3>
+                    <p><strong>Overall Flavor Profile:</strong> ${data.base_prediction}</p>
+                    
+                    <h4>Taste Profile Breakdown</h4>
+                    ${tasteProfileHtml}
+                    
+                    <h4>Ingredient Insights</h4>
+                    ${insightsHtml}
+                    
+                    <h4>Chef's Notes</h4>
+                    <p style="font-style: italic; background-color: #f8f8f8; padding: 15px; 
+                       border-left: 4px solid #4CAF50; margin-top: 10px;">
+                        ${data.enhanced_description}
+                    </p>
+                    
+                    <div style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                        <p>Analysis powered by AI - based on ${ingredientsToSend.length} ingredients</p>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = `
+                    <div class="error-message">
+                        <h3>⚠️ Analysis Error</h3>
+                        <p>${error.message}</p>
+                        <p>Check your ingredient amounts and try again. If the problem persists, please contact support.</p>
+                    </div>
+                `;
+            } finally {
+                this.disabled = false;
+                this.textContent = 'Predict Salad Taste';
+                document.getElementById('loading-spinner').style.display = 'none';
+            }
+        });
+        
+        // Helper function to add quick preset combinations
+        function addPresetSalad(name, ingredients) {
+            const presetButton = document.createElement('button');
+            presetButton.textContent = name;
+            presetButton.className = 'preset-btn';
+            presetButton.style.margin = '5px';
+            presetButton.style.padding = '5px 10px';
+            presetButton.style.borderRadius = '4px';
+            presetButton.style.backgroundColor = '#e8f5e9';
+            presetButton.style.border = '1px solid #c8e6c9';
+            presetButton.style.cursor = 'pointer';
+            
+            presetButton.addEventListener('click', function() {
+                // Clear current selection
+                document.querySelectorAll('.selected').forEach(item => item.classList.remove('selected'));
+                document.getElementById('selected-ingredients').innerHTML = '';
+                selectedIngredients.length = 0;
+                
+                // Add preset ingredients
+                ingredients.forEach(ing => {
+                    const ingItem = document.querySelector(`.ingredient-item[data-name="${ing.name}"]`);
+                    if (ingItem) ingItem.click();
+                    
+                    // Set amount
+                    const amountInput = document.querySelector(`.amount-input[data-name="${ing.name}"]`);
+                    if (amountInput) {
+                        amountInput.value = ing.amount;
+                        const event = new Event('change');
+                        amountInput.dispatchEvent(event);
+                    }
+                });
+            });
+            
+            return presetButton;
+        }
+    </script>
+</body>
+</html>
